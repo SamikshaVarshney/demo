@@ -1,0 +1,44 @@
+<table class="table table-striped table-responsive-md btn-table">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Place</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr _ngcontent-c1 *ngFor="let field of getFieldArray; let i = index" >
+    <td _ngcontent-c1>
+      <input #id1 [(ngModel)]="field.fname" class="form-control" type="text" name="{{field.fname}}" [disabled]="!field.isEditable" />
+    </td>
+    <td _ngcontent-c1>
+      <input #id2 [(ngModel)]="field.lname" class="form-control" type="text" name="{{field.lname}}" [disabled]="!field.isEditable"/>
+    </td>
+    <td _ngcontent-c1>
+      <input #id3  [(ngModel)]="field.place" class="form-control" type="text" name="{{field.place}}" [disabled]="!field.isEditable" />
+    </td>
+    <td _ngcontent-c1>
+      <button class="btn btn-primary a-btn-slide-text" #btn1 (click)="field.isEditable=!field.isEditable" *ngIf="!field.isEditable">Edit</button>&nbsp;
+      <button class="btn btn-primary a-btn-slide-text" *ngIf="field.isEditable" (click)="field.isEditable=!field.isEditable">Save</button> &nbsp;
+
+
+      <button _ngcontent-c1="" class="btn btn-labeled btn-danger"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+    </td>
+  </tr>
+  <tr _ngcontent-c1>
+    <td _ngcontent-c1>
+      <input class="form-control" type="text" id="newAttributeFname" [(ngModel)]="newAttribute.fname" name="newAttributeFname" />
+    </td>
+    <td _ngcontent-c1>
+      <input class="form-control" type="text" id="newAttributeLname" [(ngModel)]="newAttribute.lname" name="newAttributeLname" />
+    </td>
+    <td _ngcontent-c1>
+      <input class="form-control" type="text" id="newAttributePlace" [(ngModel)]="newAttribute.place" name="newAttributePlace" />
+    </td>
+    <td>
+      <button id="add-more" name="add-more" class="btn btn-primary" (click)="addFieldValue()">Add </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
